@@ -19,7 +19,6 @@ def Week(mas,k):
             result=result+mas[i]
     print(str(result)+" Отказаться от заработка "+str(day1)+" и "+str(day2))
     return minimum
-
 k=3
 mas=[60, 70, 80, 40, 80, 90, 100, 20]
 print(Week(mas,k))
