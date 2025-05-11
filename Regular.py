@@ -3,7 +3,7 @@ import re
 url1 = "http://github.com/carbonfive/raygun"
 url2 = "http://www.zombie-bites.com"
 url3="https://www.cnet.com"
-URLDOM=re.findall("[a-za-z]{4,}\.",url3)
+URLDOM=re.findall("[a-za-z]{4,}\.",url1)
 print(slice(URLDOM," "))
 print(URLDOM)
 #Литералы : Обычные символы, например, abc ищет подстроку «abc».
