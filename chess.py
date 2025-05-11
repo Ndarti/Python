@@ -60,9 +60,7 @@ def chess(mas):
         else:
             print(f'{mas[i]} is invalid')
             exit(1)
-
-
     print()
     output(board)
-
+#можно было делать и через массивы
 chess(["b3","a5","b4","axb4"])
