@@ -2,7 +2,6 @@ import re
 import numpy as np
 import math
 from colorama import Fore
-
 def killdiog(mas,ind1,ind2):
     kill=0
     for i in range(ind1,-1,-1):
