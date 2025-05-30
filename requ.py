@@ -80,6 +80,15 @@ def findcours(str):
         price2=float(tradingDay('USDT'+'/' +quote)['price'])
         print(price1/price2)
 def findcoursKucoin(str):
+    #####################
+    #separator = '/' if '/' in str else ''
+   # print(str)
+    #if separator:
+        #base, quote = str.split(separator)
+        #url = "https://api.kucoin.com/api/v1/market/allTickers"
+        #params={'symbols',f'{base}-USDT,USDT-{quote}'}
+        #req=requests.get(url,params=params)
+        #print(req.json())
     separator = '/' if '/' in str else ''
     print(str)
     if separator:
@@ -92,8 +101,6 @@ def findcoursKucoin(str):
             return True
         return False
     return None
-
-
 type=True#это отладка не ор внимания
 AB_1="STX/DAI"
 AB_2="SPOT/USD4T"
