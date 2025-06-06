@@ -101,9 +101,9 @@ def findcoursKucoin(str):
             return True
         return False
     return None
-type=True#это отладка не ор внимания
+type=False#это отладка не обр внимания
 AB_1="STX/DAI"
-AB_2="SPOT/USD4T"
+AB_2="SPOT/USDT"
 prise_1=-1
 prise_2=-1
 if tradingDay(AB_1)==False and change(AB_1)==True:
