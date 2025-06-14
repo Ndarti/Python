@@ -21,7 +21,6 @@ def get(offset):#take text with requests
 
 def main ():
     offset = None
-    print(f"Бот запущен на {time.strftime('%H:%M %Z, %A, %B %d, %Y')}")  # 05:15 PM CEST, Friday, June 13, 2025
     while True:
         updates = get(offset)
         print(updates)
