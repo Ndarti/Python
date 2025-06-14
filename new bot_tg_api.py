@@ -8,30 +8,36 @@ URL= f'https://api.telegram.org/bot{token}/'
 def send(id, text):
     params = {
         "chat_id": id,
-        "text":text
+        "text":text,
+        "timeout": 30
     }
     res = requests.get(URL + "sendMessage", params=params)
-    res.raise_for_status()
     return res.json()
 def get(offset):#take text with requests
     params = {"offset": offset, "timeout": 30} if offset else {"timeout": 30}
     response = requests.get(URL + "getUpdates", params=params)
+    print(response.json().get("result", []))
     return response.json().get("result", [])
 
 def main ():
-    off = None
+    offset = None
+    print(f"Бот запущен на {time.strftime('%H:%M %Z, %A, %B %d, %Y')}")  # 05:15 PM CEST, Friday, June 13, 2025
     while True:
-        updates = get(off)
+        updates = get(offset)
+        print(updates)
         for update in updates:
             offset = update["update_id"] + 1
             chat_id = update["message"]["chat"]["id"]
             text = update["message"]["text"]
-            print(send(chat_id, "Привет"))
-            if text == "/start":
 
+            if text == "/start":
                 send(chat_id, "Привет")
             else:
-                send(chat_id, f"Ты написал: {text}")
 
-if __name__ == "__main__":
-    main()
+                send(chat_id, f": {text}")
+        time.sleep(1)  # Задержка для снижения нагрузки
+if __name__=='__main__':
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:####
+        print('bot turn-of')
