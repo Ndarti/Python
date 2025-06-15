@@ -3,7 +3,7 @@ from aiogram.types import Message
 from aiogram.filters import CommandStart, Command
 from aiogram.fsm.state import State,StatesGroup
 from aiogram.fsm.context import FSMContext
-
+import requests
 
 import app.keyb as key
 class Example(StatesGroup):
@@ -42,12 +42,10 @@ async def safe(message:Message,state:FSMContext):
     match data["Count"]:
         case '-':
             await message.answer(f'{int(data["Num1"]) - int(data["Num2"])}')
-
         case '+':
             await message.answer(f'{int(data["Num1"]) + int(data["Num2"])}')
         case '_':
             await message.answer('er')
 @router.message(Command('help'))
 async def cmd_help(message:Message):
-
     await message.answer("what kind of help do you need")
